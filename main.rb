@@ -20,11 +20,12 @@ post '/github_hook' do
 
   config['message'] = message
 
-  url = "https://api.hipchat.com/v1/rooms/message?auth_token=#{config['auth_token']}"
-  puts url
-  uri = URI.parse(url)
-  puts uri
-  res = Net::HTTP.post_form(uri, config)
-  puts 'got here!'
-  puts res.body
+  uri = URI("https://api.hipchat.com/v1/rooms/message?auth_token=#{config['auth_token']}")
+  Net::HTTP.start(uri.host, uri.port,
+    :use_ssl => uri.scheme == 'https') do |http|
+
+    req = Net::HTTP::Post.new(uri.path)
+    req.set_form_data(config)
+    http.request req # Net::HTTPResponse object
+  end
 end
