@@ -1,4 +1,4 @@
-HipGit
-======
+# HipGit
 
-Github repo notification in HipChat!
+*Github repo notification in HipChat!*
+
