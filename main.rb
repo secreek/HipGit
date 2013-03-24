@@ -3,9 +3,19 @@ require 'json'
 require "net/https"
 require "uri"
 
-@config = JSON.load(open('config.json').read)
+json_str = '{
+  "auth_token" : "6eea73282d3a9dbf667156ccca3bb7",
+  "from" : "HipGit",
+  "room_id" : "GoF",
+  "notify" : "1",
+  "color" : "yellow"
+}
+'
+
+@config = JSON.load(json_str)
 
 post '/github_hook' do
+  puts  'got here!'
   push = JSON.parse(params[:payload])
   puts push
   repo_name = push['repository']['name']
