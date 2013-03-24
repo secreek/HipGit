@@ -14,7 +14,7 @@ post '/github_hook' do
   puts url
   commiters = []
   push['commits'].each do |commit|
-    name = commit['commiter']['name']
+    name = commit['author']['name']
     commiters << name unless commiters.include?(name)
   end
   puts commiters
