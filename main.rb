@@ -3,9 +3,8 @@ require 'json'
 require "net/https"
 require "uri"
 
-@config = JSON.load(open('config.json').read)
-
 post '/github_hook' do
+  config = JSON.load(open('config.json').read)
   push = JSON.parse(params[:payload])
   repo_name = push['repository']['name']
   url = push['repository']['url']
@@ -19,13 +18,13 @@ post '/github_hook' do
 
   message = "@all `#{commiter_name}` just pushed something to #{repo_name}, check it out here: `#{url}`"
 
-  @config['message'] = message
+  config['message'] = message
 
-  url = "https://api.hipchat.com/v1/rooms/message?auth_token=#{@config['auth_token']}"
+  url = "https://api.hipchat.com/v1/rooms/message?auth_token=#{config['auth_token']}"
   puts url
   uri = URI.parse(url)
   puts uri
-  res = Net::HTTP.post_form(uri, @config)
+  res = Net::HTTP.post_form(uri, config)
   puts 'got here!'
   puts res.body
 end
