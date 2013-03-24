@@ -14,7 +14,7 @@ json_str = '{
 
 @config = JSON.load(json_str)
 
-post '/github_hook' do
+post '/hipgit_hook' do
   puts  'got here!'
   push = JSON.parse(params[:payload])
   puts push
