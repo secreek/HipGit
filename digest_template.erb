@@ -1,0 +1,12 @@
+Hi @all, may I have your attentions please! @<%= commiter_name%> has just pushed some code to repo "<%= repo_name%>"
+
+There are <%= commits.length %> commits:
+<%
+commits.each do |commit|
+%>
+- <%= commit['message']%> (<%= commit['timestamp']%>)
+<%
+end
+%>
+
+Repo URL: <%= url%>
