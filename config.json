@@ -3,5 +3,6 @@
   "from" : "HipGit",
   "room_id" : "GitBuzz",
   "notify" : "1",
-  "color" : "gray"
+  "color" : "gray",
+  "message_format" : "html"
 }
