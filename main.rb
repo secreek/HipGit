@@ -3,9 +3,11 @@ require 'json'
 require "net/https"
 require "uri"
 require "erb"
+require "cgi"
 
 post '/github_hook' do
   config = JSON.load(open('config.json').read)
+  payload = CGI.escapeHTML(params['payload'])
   push = JSON.parse(params[:payload])
   repo_name = push['repository']['name']
   url = push['repository']['url']
