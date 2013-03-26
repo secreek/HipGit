@@ -15,20 +15,19 @@ is 1 commit:
 <%
 end
 %>
-
 </div>
 <br/>
+
 <div>
 <%
 commits.each do |commit|
 %>
-<span><%= commit['message']%> (<%= commit['timestamp']%>)</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;－ <span><%= commit['message']%> (<%= commit['timestamp']%>)</span><br/>
 <%
 end
 %>
 </div>
 
-<br/>
 <div>
 Repo URL: <a><%= url%></a>
 </div>
