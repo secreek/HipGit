@@ -1,12 +1,18 @@
-Hi @all, may I have your attentions please! @<%= commiter_name%> has just pushed some code to repo "<%= repo_name%>"
-
+<div>
+Hi all, may I have your attentions please! <%= commiter_name%> has just pushed some code to repo "<%= repo_name%>"
+</div>
+<div>
 There are <%= commits.length %> commits:
+<ul>
 <%
 commits.each do |commit|
 %>
-- <%= commit['message']%> (<%= commit['timestamp']%>)
+<li><%= commit['message']%> (<%= commit['timestamp']%>)</li>
 <%
 end
 %>
-
-Repo URL: <%= url%>
+</ul>
+</div>
+<div>
+Repo URL: <a><%= url%></a>
+</div>
