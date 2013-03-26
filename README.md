@@ -2,4 +2,5 @@
 
 *Github repo notification in HipChat!*
 
-## Deploys on heroku
+## HipChat & GitHub
+GitHub notifies HipChat
