@@ -1,8 +1,11 @@
 <div>
 Hi all, may I have your attentions please! <%= commiter_name%> has just pushed some code to repo "<%= repo_name%>"
 </div>
+
 <div>
 There are <%= commits.length %> commits:
+</div>
+
 <ul>
 <%
 commits.each do |commit|
@@ -12,7 +15,7 @@ commits.each do |commit|
 end
 %>
 </ul>
-</div>
+
 <div>
 Repo URL: <a><%= url%></a>
 </div>
