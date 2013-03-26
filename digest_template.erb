@@ -1,21 +1,34 @@
 <div>
-Hi all, may I have your attentions please! <%= commiter_name%> has just pushed some code to repo "<%= repo_name%>"
+Hi all, may I have your attentions please! <%= commiter_name%> has just pushed some code to repo "<%= repo_name%>".
 </div>
-
+<br/>
 <div>
-There are <%= commits.length %> commits:
-</div>
-
-<ul>
+There
 <%
-commits.each do |commit|
+if commits.length > 1
 %>
-<li><%= commit['message']%> (<%= commit['timestamp']%>)</li>
+are <%= commits.length %> commits:
+<%
+else
+%>
+is 1 commit:
 <%
 end
 %>
-</ul>
 
+</div>
+<br/>
+<div>
+<%
+commits.each do |commit|
+%>
+<span><%= commit['message']%> (<%= commit['timestamp']%>)</span><br/>
+<%
+end
+%>
+</div>
+
+<br/>
 <div>
 Repo URL: <a><%= url%></a>
 </div>
